@@ -1,0 +1,41 @@
+{
+  "name": "vox-vscode",
+  "displayName": "Vox - Programación en Español",
+  "description": "Soporte para el lenguaje Vox.",
+  "version": "0.1.0",
+  "publisher": "vox-lang",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Programming Languages", "Snippets"],
+  "keywords": ["vox", "español", "flutter", "dart"],
+  "main": "./out/extension.js",
+  "activationEvents": ["onLanguage:vox"],
+  "contributes": {
+    "languages": [{
+      "id": "vox",
+      "aliases": ["Vox", "vox"],
+      "extensions": [".vox"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [
+      {
+        "language": "vox",
+        "scopeName": "source.vox.es",
+        "path": "./syntaxes/vox-es.tmLanguage.json"
+      },
+      {
+        "language": "vox",
+        "scopeName": "source.vox.pt",
+        "path": "./syntaxes/vox-pt.tmLanguage.json"
+      },
+      {
+        "language": "vox",
+        "scopeName": "source.vox.it",
+        "path": "./syntaxes/vox-it.tmLanguage.json"
+      }
+    ],
+    "snippets": [{
+      "language": "vox",
+      "path": "./snippets/vox.json"
+    }]
+  }
+}

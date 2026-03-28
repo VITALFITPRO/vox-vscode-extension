@@ -1,0 +1,50 @@
+{
+  "Pantalla nueva": {
+    "prefix": "pantalla",
+    "body": [
+      "pantalla ${1:Nombre} {",
+      "  estado variable ${2:contador} = ${3:0};",
+      "  funcion ${4:accion}() {",
+      "    $5",
+      "  }",
+      "  diseño {",
+      "    columna(alineacion: \"centro\") {",
+      "      Texto(\"${6:Hola}\", tamaño: 24)",
+      "      $0",
+      "    }",
+      "  }",
+      "}"
+    ],
+    "description": "Crea una nueva pantalla Vox"
+  },
+  "Variable": {
+    "prefix": "var",
+    "body": ["variable ${1:nombre} = ${2:valor};"],
+    "description": "Declara una variable"
+  },
+  "Funcion": {
+    "prefix": "fun",
+    "body": ["funcion ${1:nombre}(${2:params}) {", "  $0", "}"],
+    "description": "Declara una función"
+  },
+  "Clase": {
+    "prefix": "clase",
+    "body": [
+      "clase ${1:Nombre} {",
+      "  variable ${2:propiedad};",
+      "  constructor(${2:propiedad}) {",
+      "    este.${2:propiedad} = ${2:propiedad};",
+      "  }",
+      "  funcion ${3:metodo}() {",
+      "    $0",
+      "  }",
+      "}"
+    ],
+    "description": "Declara una clase"
+  },
+  "Si condicional": {
+    "prefix": "si",
+    "body": ["si (${1:condicion}) {", "  $0", "}"],
+    "description": "Bloque condicional"
+  }
+}
