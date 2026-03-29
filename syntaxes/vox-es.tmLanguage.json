@@ -9,7 +9,7 @@
     { "name": "constant.numeric.vox", "match": "\\b\\d+(\\.\\d+)?\\b" },
     { "name": "constant.language.vox", "match": "\\b(verdadero|falso|nulo)\\b" },
     { "name": "keyword.declaration.vox", "match": "\\b(variable|constante|funcion|clase|pantalla|constructor|importar|estado)\\b" },
-    { "name": "keyword.control.vox", "match": "\\b(si|sino|mientras|para|retornar|intentar|capturar|finalmente)\\b" },
+    { "name": "keyword.control.vox", "match": "\\b(si|sino|mientras|para|retornar|intentar|capturar|finalmente|ir_a|regresar)\\b" },
     { "name": "keyword.other.vox", "match": "\\b(nuevo|este|extiende|diseño|al_tocar|al_cambiar|imprimir)\\b" },
     { "name": "storage.type.vox", "match": "\\b(entero|decimal|texto|booleano|lista|objeto)\\b" },
     { "name": "entity.name.tag.widget.vox", "match": "\\b(Texto|Boton|Imagen|icono|columna|fila|centro|contenedor|relleno|espacio|pila|entrada|lista|tarjeta|barra_app|flotante|dialogo|cargando|divisor|interruptor|deslizador|desplegable|navegacion_inferior|avatar)\\b" }

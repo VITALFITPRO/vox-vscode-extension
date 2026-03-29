@@ -4,6 +4,7 @@
   "description": "Soporte para el lenguaje Vox.",
   "version": "0.1.0",
   "publisher": "vox-lang",
+  "icon": "images/logo.png",
   "engines": { "vscode": "^1.85.0" },
   "categories": ["Programming Languages", "Snippets"],
   "keywords": ["vox", "español", "flutter", "dart"],

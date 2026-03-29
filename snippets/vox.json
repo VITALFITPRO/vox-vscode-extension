@@ -46,5 +46,29 @@
     "prefix": "si",
     "body": ["si (${1:condicion}) {", "  $0", "}"],
     "description": "Bloque condicional"
+  },
+  "Ir a Pantalla": {
+    "prefix": "ira",
+    "body": ["ir_a(\"${1:NombrePantalla}\");"],
+    "description": "Navega a la pantalla solicitada"
+  },
+  "Regresar": {
+    "prefix": "reg",
+    "body": ["regresar();"],
+    "description": "Regresa a la pantalla anterior"
+  },
+  "Navegacion Fila": {
+    "prefix": "nav",
+    "body": [
+      "fila(alineacion: \"centro\") {",
+      "  Boton(\"Regresar\", al_tocar: () {",
+      "    regresar();",
+      "  })",
+      "  Boton(\"Avanzar\", al_tocar: () {",
+      "    ir_a(\"${1:SiguientePantalla}\");",
+      "  })",
+      "}"
+    ],
+    "description": "Agrega botones básicos de ir_a y regresar"
   }
 }
