@@ -37,6 +37,28 @@
     "snippets": [{
       "language": "vox",
       "path": "./snippets/vox.json"
-    }]
+    }],
+    "commands": [
+      { "command": "vox.compilar", "title": "Vox: Compilar", "icon": "$(play)" },
+      { "command": "vox.ejecutar_movil", "title": "Vox: Ejecutar Móvil", "icon": "$(device-mobile)" },
+      { "command": "vox.ejecutar_web", "title": "Vox: Ejecutar Web", "icon": "$(globe)" }
+    ],
+    "menus": {
+      "editor/title": [
+        { "command": "vox.compilar", "when": "resourceExtname == .vox", "group": "navigation@1" },
+        { "command": "vox.ejecutar_movil", "when": "resourceExtname == .vox", "group": "navigation@2" },
+        { "command": "vox.ejecutar_web", "when": "resourceExtname == .vox", "group": "navigation@3" }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.0.0"
   }
 }
