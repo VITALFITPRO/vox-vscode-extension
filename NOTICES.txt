@@ -1,0 +1,7 @@
+Extensión VS Code para Vox
+Copyright (c) 2026 Vox Lang
+voxlang.dev
+
+Monaco Editor - Copyright Microsoft - MIT
+Flutter - Copyright Google LLC - BSD 3-Clause
+Dart SDK - Copyright Google LLC - BSD 3-Clause

@@ -1,0 +1,28 @@
+Extensión VS Code para el Lenguaje Vox
+Copyright (c) 2026 Vox Lang
+voxlang.dev | contacto@voxlang.dev
+
+RECONOCIMIENTO DE TERCEROS:
+
+- Monaco Editor (base de VS Code)
+  Copyright Microsoft Corporation
+  Licencia: MIT License
+  github.com/microsoft/monaco-editor
+
+- Flutter Framework
+  Copyright 2014 The Flutter Authors
+  Licencia: BSD 3-Clause
+  github.com/flutter/flutter/blob/master/LICENSE
+
+- Dart SDK
+  Copyright 2012 The Dart Authors
+  Licencia: BSD 3-Clause
+  github.com/dart-lang/sdk/blob/main/LICENSE
+
+Esta extensión NO está patrocinada ni afiliada
+a Microsoft ni a Google LLC.
+VS Code, Flutter y Dart son marcas registradas
+de sus respectivos propietarios.
+
+La extensión se provee TAL CUAL sin garantías.
+Para soporte: contacto@voxlang.dev
