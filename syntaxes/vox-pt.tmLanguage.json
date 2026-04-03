@@ -8,10 +8,10 @@
     { "name": "string.quoted.double.vox", "begin": "\"", "end": "\"" },
     { "name": "constant.numeric.vox", "match": "\\b\\d+(\\.\\d+)?\\b" },
     { "name": "constant.language.vox", "match": "\\b(verdadeiro|falso|nulo)\\b" },
-    { "name": "keyword.declaration.vox", "match": "\\b(variavel|constante|funcao|classe|tela|construtor|importar|estado)\\b" },
-    { "name": "keyword.control.vox", "match": "\\b(se|senao|enquanto|para|retornar|tentar|capturar|finalmente|ir_para|voltar)\\b" },
-    { "name": "keyword.other.vox", "match": "\\b(novo|este|estende|layout|ao_tocar|ao_mudar|imprimir)\\b" },
-    { "name": "storage.type.vox", "match": "\\b(inteiro|decimal|texto|booleano|lista|objeto)\\b" },
-    { "name": "entity.name.tag.widget.vox", "match": "\\b(Texto|Botao|Imagem|icone|coluna|linha|centro|container|preenchimento|espaco|pilha|entrada|lista|cartao|barra_app|flutuante|dialogo|carregando|divisor|interruptor|deslizador|suspenso|navegacao_inferior|avatar)\\b" }
+    { "name": "keyword.declaration.vox", "match": "\\b(variavel|constante|funcao|classe|tela|construtor|importar|estado|assincrono)\\b" },
+    { "name": "keyword.control.vox", "match": "\\b(se|senao|enquanto|para|retornar|tentar|capturar|finalmente|ir_para|voltar|aguardar)\\b" },
+    { "name": "keyword.other.vox", "match": "\\b(novo|este|estende|herda_de|layout|ao_tocar|ao_mudar|imprimir|super|expandir)\\b" },
+    { "name": "storage.type.vox", "match": "\\b(inteiro|decimal|texto|booleano|lista|objeto|vazio)\\b" },
+    { "name": "entity.name.tag.widget.vox", "match": "\\b(Texto|Botao|Imagem|Icone|coluna|linha|centro|container|preenchimento|espaco|pilha|entrada|Lista|cartao|barra_app|flutuante|dialogo|carregando|divisor|interruptor|deslizador|suspenso|navegacao_inferior|avatar|pagina_web|mapa|video|camera)\\b" }
   ]
 }

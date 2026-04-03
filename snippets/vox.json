@@ -15,37 +15,161 @@
       "  }",
       "}"
     ],
-    "description": "Crea una nueva pantalla Vox"
+    "description": "Crea una nueva pantalla Vox (móvil/desktop)"
+  },
+  "Pantalla Web": {
+    "prefix": "pantalla-web",
+    "body": [
+      "pantalla ${1:Nombre}Web {",
+      "  estado variable ${2:titulo} = \"${3:Mi Página}\";",
+      "  diseño {",
+      "    columna(ancho: \"100%\", alineacion: \"centro\") {",
+      "      barra_app { Texto(este.${2:titulo}, tamaño: 28) }",
+      "      contenedor(ancho: 960, relleno: 24) {",
+      "        $0",
+      "      }",
+      "    }",
+      "  }",
+      "}"
+    ],
+    "description": "Pantalla optimizada para Web"
+  },
+  "Pantalla Móvil": {
+    "prefix": "pantalla-movil",
+    "body": [
+      "pantalla ${1:Nombre}Movil {",
+      "  estado variable ${2:datos}: lista = [];",
+      "  asincrono funcion cargar() {",
+      "    este.${2:datos} = esperar ${3:servicio}.obtener();",
+      "  }",
+      "  diseño {",
+      "    columna {",
+      "      barra_app { Texto(\"${4:Título}\") }",
+      "      Lista(items: este.${2:datos}, constructor: (item) {",
+      "        tarjeta { Texto(item.nombre) }",
+      "      })",
+      "      flotante(icono: \"mas\", al_tocar: () {",
+      "        $0",
+      "      })",
+      "    }",
+      "  }",
+      "}"
+    ],
+    "description": "Pantalla con lista y FAB para Android/iOS"
+  },
+  "Pantalla Desktop": {
+    "prefix": "pantalla-desktop",
+    "body": [
+      "pantalla ${1:Nombre}Desktop {",
+      "  estado variable ${2:seccion} = \"inicio\";",
+      "  diseño {",
+      "    fila {",
+      "      contenedor(ancho: 240, color: \"#1E1E1E\") {",
+      "        columna {",
+      "          Boton(\"Inicio\",    al_tocar: () { este.${2:seccion} = \"inicio\"; })",
+      "          Boton(\"Ajustes\",  al_tocar: () { este.${2:seccion} = \"ajustes\"; })",
+      "        }",
+      "      }",
+      "      contenedor(expandir: verdadero, relleno: 24) {",
+      "        $0",
+      "      }",
+      "    }",
+      "  }",
+      "}"
+    ],
+    "description": "Pantalla con barra lateral para Windows/Mac/Linux"
   },
   "Variable": {
     "prefix": "var",
     "body": ["variable ${1:nombre} = ${2:valor};"],
     "description": "Declara una variable"
   },
+  "Variable tipada": {
+    "prefix": "vart",
+    "body": ["variable ${1:nombre}: ${2|entero,decimal,texto,booleano,lista,objeto|} = ${3:valor};"],
+    "description": "Declara una variable con tipo explícito"
+  },
+  "Constante": {
+    "prefix": "const",
+    "body": ["constante ${1:NOMBRE} = ${2:valor};"],
+    "description": "Declara una constante"
+  },
   "Funcion": {
     "prefix": "fun",
-    "body": ["funcion ${1:nombre}(${2:params}) {", "  $0", "}"],
+    "body": ["funcion ${1:nombre}(${2:params}): ${3:vacio} {", "  $0", "}"],
     "description": "Declara una función"
+  },
+  "Funcion asincrona": {
+    "prefix": "funa",
+    "body": ["asincrono funcion ${1:nombre}(${2:params}) {", "  intentar {", "    $0", "  } capturar (error) {", "    imprimir(error);", "  }", "}"],
+    "description": "Función asíncrona con manejo de errores"
   },
   "Clase": {
     "prefix": "clase",
     "body": [
       "clase ${1:Nombre} {",
-      "  variable ${2:propiedad};",
-      "  constructor(${2:propiedad}) {",
+      "  variable ${2:propiedad}: ${3:texto};",
+      "  constructor(${2:propiedad}: ${3:texto}) {",
       "    este.${2:propiedad} = ${2:propiedad};",
       "  }",
-      "  funcion ${3:metodo}() {",
+      "  funcion ${4:metodo}(): vacio {",
       "    $0",
       "  }",
       "}"
     ],
     "description": "Declara una clase"
   },
+  "Clase con herencia": {
+    "prefix": "clase-hereda",
+    "body": [
+      "clase ${1:Hijo} hereda_de ${2:Padre} {",
+      "  constructor(${3:params}) {",
+      "    super(${3:params});",
+      "    $0",
+      "  }",
+      "}"
+    ],
+    "description": "Clase que hereda de otra"
+  },
   "Si condicional": {
     "prefix": "si",
     "body": ["si (${1:condicion}) {", "  $0", "}"],
     "description": "Bloque condicional"
+  },
+  "Si / Sino": {
+    "prefix": "sino",
+    "body": ["si (${1:condicion}) {", "  $2", "} sino {", "  $0", "}"],
+    "description": "Bloque condicional con sino"
+  },
+  "Mientras": {
+    "prefix": "mientras",
+    "body": ["mientras (${1:condicion}) {", "  $0", "}"],
+    "description": "Bucle mientras"
+  },
+  "Para (for)": {
+    "prefix": "para",
+    "body": ["para (variable ${1:i} = 0; ${1:i} < ${2:10}; ${1:i}++) {", "  $0", "}"],
+    "description": "Bucle for"
+  },
+  "Intentar / Capturar": {
+    "prefix": "intentar",
+    "body": ["intentar {", "  $1", "} capturar (${2:error}) {", "  imprimir(${2:error});", "} finalmente {", "  $0", "}"],
+    "description": "Bloque try/catch/finally"
+  },
+  "Llamada a API": {
+    "prefix": "api",
+    "body": [
+      "asincrono funcion ${1:obtenerDatos}(): ${2:lista} {",
+      "  intentar {",
+      "    variable respuesta = esperar http.obtener(\"${3:https://api.ejemplo.com/datos}\");",
+      "    retornar respuesta.cuerpo;",
+      "  } capturar (error) {",
+      "    imprimir(\"Error: \" + error);",
+      "    retornar [];",
+      "  }",
+      "}"
+    ],
+    "description": "Función asíncrona para llamar una API"
   },
   "Ir a Pantalla": {
     "prefix": "ira",
@@ -69,6 +193,50 @@
       "  })",
       "}"
     ],
-    "description": "Agrega botones básicos de ir_a y regresar"
+    "description": "Botones de navegación ir_a y regresar"
+  },
+  "Navegacion inferior": {
+    "prefix": "navbottom",
+    "body": [
+      "navegacion_inferior(opciones: [",
+      "  { icono: \"inicio\",    etiqueta: \"Inicio\",    pantalla: \"${1:Inicio}\" },",
+      "  { icono: \"buscar\",   etiqueta: \"Buscar\",    pantalla: \"${2:Buscar}\" },",
+      "  { icono: \"perfil\",   etiqueta: \"Perfil\",    pantalla: \"${3:Perfil}\" }",
+      "])"
+    ],
+    "description": "Barra de navegación inferior con 3 pestañas"
+  },
+  "Lista de items": {
+    "prefix": "listaitems",
+    "body": [
+      "Lista(items: ${1:misItems}, constructor: (${2:item}) {",
+      "  tarjeta(relleno: 12) {",
+      "    fila {",
+      "      Imagen(${2:item}.imagen, ancho: 60, alto: 60)",
+      "      espacio(ancho: 12)",
+      "      columna(expandir: verdadero) {",
+      "        Texto(${2:item}.titulo, tamaño: 16, negrita: verdadero)",
+      "        Texto(${2:item}.subtitulo, tamaño: 13, color: \"gris\")",
+      "      }",
+      "    }",
+      "  }",
+      "})"
+    ],
+    "description": "Lista con tarjetas de imagen + texto"
+  },
+  "Formulario": {
+    "prefix": "form",
+    "body": [
+      "columna(relleno: 16) {",
+      "  entrada(etiqueta: \"${1:Nombre}\",   al_cambiar: (v) { este.${2:nombre} = v; })",
+      "  entrada(etiqueta: \"${3:Email}\",    tipo: \"email\", al_cambiar: (v) { este.${4:email} = v; })",
+      "  entrada(etiqueta: \"${5:Contraseña}\", tipo: \"password\", al_cambiar: (v) { este.${6:pass} = v; })",
+      "  espacio(alto: 20)",
+      "  Boton(\"${7:Enviar}\", expandir: verdadero, al_tocar: () {",
+      "    $0",
+      "  })",
+      "}"
+    ],
+    "description": "Formulario con campos de entrada y botón"
   }
 }
