@@ -2,24 +2,41 @@
   "name": "vox-vscode",
   "displayName": "Vox - Programación en Español",
   "description": "Soporte para el lenguaje Vox.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "publisher": "vox-lang",
   "icon": "images/logo.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/vox-lang/vox-vscode-extension"
   },
-  "engines": { "vscode": "^1.85.0" },
-  "categories": ["Programming Languages", "Snippets"],
-  "keywords": ["vox", "español", "flutter", "dart"],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "keywords": [
+    "vox",
+    "español",
+    "flutter",
+    "dart"
+  ],
   "main": "./out/extension.js",
   "contributes": {
-    "languages": [{
-      "id": "vox",
-      "aliases": ["Vox", "vox"],
-      "extensions": [".vox"],
-      "configuration": "./language-configuration.json"
-    }],
+    "languages": [
+      {
+        "id": "vox",
+        "aliases": [
+          "Vox",
+          "vox"
+        ],
+        "extensions": [
+          ".vox"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
     "grammars": [
       {
         "language": "vox",
@@ -37,28 +54,86 @@
         "path": "./syntaxes/vox-it.tmLanguage.json"
       }
     ],
-    "snippets": [{
-      "language": "vox",
-      "path": "./snippets/vox.json"
-    }],
+    "snippets": [
+      {
+        "language": "vox",
+        "path": "./snippets/vox.json"
+      }
+    ],
     "commands": [
-      { "command": "vox.compilar",          "title": "Vox: Compilar",          "icon": "$(play)" },
-      { "command": "vox.ejecutar_web",       "title": "Vox: Ejecutar Web",       "icon": "$(globe)" },
-      { "command": "vox.ejecutar_android",   "title": "Vox: Ejecutar Android",   "icon": "$(device-mobile)" },
-      { "command": "vox.ejecutar_ios",       "title": "Vox: Ejecutar iOS",        "icon": "$(vm-active)" },
-      { "command": "vox.ejecutar_mac",       "title": "Vox: Ejecutar Mac",        "icon": "$(vm)" },
-      { "command": "vox.ejecutar_windows",   "title": "Vox: Ejecutar Windows",    "icon": "$(window)" },
-      { "command": "vox.ejecutar_linux",     "title": "Vox: Ejecutar Linux",      "icon": "$(terminal-linux)" }
+      {
+        "command": "vox.compilar",
+        "title": "Vox: Compilar",
+        "icon": "$(play)"
+      },
+      {
+        "command": "vox.ejecutar_web",
+        "title": "Vox: Ejecutar Web",
+        "icon": "$(globe)"
+      },
+      {
+        "command": "vox.ejecutar_android",
+        "title": "Vox: Ejecutar Android",
+        "icon": "$(device-mobile)"
+      },
+      {
+        "command": "vox.ejecutar_ios",
+        "title": "Vox: Ejecutar iOS",
+        "icon": "$(vm-active)"
+      },
+      {
+        "command": "vox.ejecutar_mac",
+        "title": "Vox: Ejecutar Mac",
+        "icon": "$(vm)"
+      },
+      {
+        "command": "vox.ejecutar_windows",
+        "title": "Vox: Ejecutar Windows",
+        "icon": "$(window)"
+      },
+      {
+        "command": "vox.ejecutar_linux",
+        "title": "Vox: Ejecutar Linux",
+        "icon": "$(terminal-linux)"
+      }
     ],
     "menus": {
       "editor/title": [
-        { "command": "vox.compilar",         "when": "resourceExtname == .vox", "group": "navigation@1" },
-        { "command": "vox.ejecutar_web",     "when": "resourceExtname == .vox", "group": "navigation@2" },
-        { "command": "vox.ejecutar_android", "when": "resourceExtname == .vox", "group": "navigation@3" },
-        { "command": "vox.ejecutar_ios",     "when": "resourceExtname == .vox", "group": "navigation@4" },
-        { "command": "vox.ejecutar_mac",     "when": "resourceExtname == .vox", "group": "navigation@5" },
-        { "command": "vox.ejecutar_windows", "when": "resourceExtname == .vox", "group": "navigation@6" },
-        { "command": "vox.ejecutar_linux",   "when": "resourceExtname == .vox", "group": "navigation@7" }
+        {
+          "command": "vox.compilar",
+          "when": "resourceExtname == .vox",
+          "group": "navigation@1"
+        },
+        {
+          "command": "vox.ejecutar_web",
+          "when": "resourceExtname == .vox",
+          "group": "navigation@2"
+        },
+        {
+          "command": "vox.ejecutar_android",
+          "when": "resourceExtname == .vox",
+          "group": "navigation@3"
+        },
+        {
+          "command": "vox.ejecutar_ios",
+          "when": "resourceExtname == .vox",
+          "group": "navigation@4"
+        },
+        {
+          "command": "vox.ejecutar_mac",
+          "when": "resourceExtname == .vox",
+          "group": "navigation@5"
+        },
+        {
+          "command": "vox.ejecutar_windows",
+          "when": "resourceExtname == .vox",
+          "group": "navigation@6"
+        },
+        {
+          "command": "vox.ejecutar_linux",
+          "when": "resourceExtname == .vox",
+          "group": "navigation@7"
+        }
       ]
     },
     "configuration": {
@@ -67,7 +142,14 @@
         "vox.defaultPlatform": {
           "type": "string",
           "default": "android",
-          "enum": ["web", "android", "ios", "mac", "windows", "linux"],
+          "enum": [
+            "web",
+            "android",
+            "ios",
+            "mac",
+            "windows",
+            "linux"
+          ],
           "description": "Plataforma destino por defecto al presionar Compilar"
         },
         "vox.autoFormat": {
@@ -83,9 +165,15 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./"
   },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
   "devDependencies": {
     "@types/node": "^18.0.0",
     "@types/vscode": "^1.85.0",
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
   }
 }
